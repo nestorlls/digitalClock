@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #2f363e;
+}
+
+.container {
+  position: absolute;
+  background: #2f363e;
+  /* min-height: 50rem; */
+  border-radius: 2rem;
+  border-top-right-radius: 22.5rem;
+  border-top-left-radius: 22.5rem;
+  box-shadow: 2.5rem 2.5rem 7.5rem rgba(0, 0, 0, .7),
+    1rem 1rem 7rem rgba(0, 0, 0, .25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.clock {
+  position: relative;
+  width: 450px;
+  height: 450px;
+  background: #2f363e;
+  border-radius: 50%;
+  box-shadow: 1rem 1rem 7rem rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.clock::before {
+  content: "";
+  position: absolute;
+  width: 0.8rem;
+  height: 0.8rem;
+  background: #2f363e;
+  border: 0.3rem solid #fff;
+  border-radius: 50%;
+  z-index: 1000000;
+}
+
+.clock span {
+  position: absolute;
+  inset: 2rem;
+  color: #fff;
+  text-align: center;
+  transform: rotate(calc(30deg * var(--i)));
+  /* 360 / 12 = 30deg */
+}
+
+.clock span b {
+  font-size: 3rem;
+  opacity: 0.25;
+  font-weight: 600;
+  display: inline-block;
+  transform: rotate(calc(-30deg * var(--i)));
+}
+
+.circle {
+  position: absolute;
+  width: 30rem;
+  height: 30rem;
+  border: 0.2rem solid rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 10;
+}
+.circle i {
+  position: absolute;
+  width: 0.6rem;
+  height: 50%;
+  background: var(--clr);
+  opacity: 0.5;
+  transform-origin: bottom;
+  transform: scaleY(0.5);
+}
+
+.circle:nth-child(1) i {
+  width: 0.2rem;
+}
+.circle:nth-child(2) i {
+  width: 0.6rem;
+}
+.circle2 {
+  width: 24rem;
+  height: 24rem;
+  z-index: 9;
+}
+.circle3 {
+  width: 18rem;
+  height: 18rem;
+  z-index: 8;
+}
+
+.circle::before {
+  content: "";
+  position: absolute;
+  top: -0.85rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: var(--clr);
+  box-shadow: 0 0 2rem var(--clr), 0 0 6rem var(--clr);
+}
+
+/* Ditigal clock style */
+#time {
+  margin-bottom: 4rem;
+  display: flex;
+  padding: 1rem 2rem;
+  font-size: 3rem;
+  font-weight: 600;
+  border: 0.2rem solid rgba(0, 0, 0, 0.1);
+  border-radius: 4rem;
+  box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.5);
+}
+
+#time div {
+  position: relative;
+  width: 6rem;
+  text-align: center;
+  font-weight: 500;
+  color: var(--clr);
+}
+
+#time div:nth-child(1)::after,
+#time div:nth-child(2)::after {
+  content: ":";
+  position: absolute;
+  right: -0.4rem;
+}
+#time div:last-child {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+#time div:nth-child(2)::after {
+  animation: animate 1s steps(1) infinite;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
